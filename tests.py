@@ -121,10 +121,10 @@ class QueueTestCase(unittest.TestCase):
     def test_print(self):
         queue = Queue()
 
-        assert print(queue) == ""
+        assert print(queue) == print("")
 
         queue.enqueue(3)
         queue.enqueue(1)
         queue.enqueue(2)
 
-        assert print(queue) == "3 -> 1 -> 2"
+        assert print(queue) == print("3 -> 1 -> 2")
