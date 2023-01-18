@@ -1,34 +1,43 @@
+class Node(object):
+    def __init__(self,d):
+        self.data = d
+        self.next = None
+
 class Stack:
     def __init__(self):
-        self.elements = []
-        self.top = 0
-
-    def push(self, data):
-        self.elements.append(data)
-        self.top += 1
-
+        self.top = None
+        self.size = 0
+    def push(self, d):
+        new_node = Node(d)
+        if self.top:
+            new_node.next = self.top
+        self.top = new_node 
+        self.size += 1 
+        
     def pop(self):
         if self.is_empty():
             raise StackPopException
-        else:
-            self.top -= 1
-            return self.elements.pop()
+        result = self.top.data
+        self.top = self.top.next
+        self.size -= 1
+        return result
 
     def __len__(self):
-        return len(self.elements)
+        return self.size
 
     def is_empty(self):
         return True if self.__len__() == 0 else False
 
-    def __repr__(self):
+    def __str__(self):
         message = ""
         chrs = " -> "
-        for i in range(self.top-1,-1,-1):
-            if(i == self.top -1):
-                message = message +str(self.elements[i])
-            else:
-                message = message + chrs+str(self.elements[i])
-
+        if (self.top is not None):
+            message = message +str(self.top.data)
+            while(True):
+                if(self.top.next is None): #this is our do-while loop emulation, checking if this is the last Node
+                    break
+                self.top = self.top.next #update cur so we move on in the next iteration 
+                message = message + chrs+str(self.top.data)
         return f"{message}"
 
 
