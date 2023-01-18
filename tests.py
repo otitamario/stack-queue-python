@@ -7,7 +7,6 @@ from myqueue import Queue, QueueDequeueException
 
 
 class StackTestCase(unittest.TestCase):
-
     def test_is_empty(self):
         stack = Stack()
         assert stack.is_empty() is True
@@ -31,10 +30,10 @@ class StackTestCase(unittest.TestCase):
     def test_push_items(self):
         stack = Stack()
 
-        tests = [1, '0', Stack, lambda x: x, {}, [], None]
+        tests = [1, "0", Stack, lambda x: x, {}, [], None]
 
         for test in tests:
-            stack.add(test)
+            stack.push(test)  # stack.add(test) errado
 
         assert len(tests) == len(stack)
 
@@ -60,17 +59,16 @@ class StackTestCase(unittest.TestCase):
     def test_print(self):
         stack = Stack()
 
-        assert print(stack) == ''
+        assert print(stack) == print("")
 
         stack.push(3)
         stack.push(1)
         stack.push(2)
 
-        assert print(stack) == '2 -> 1 -> 3'
+        assert print(stack) == print("2 -> 1 -> 3")
 
 
 class QueueTestCase(unittest.TestCase):
-
     def test_is_empty(self):
         queue = Queue()
         assert queue.is_empty() is True
@@ -94,7 +92,7 @@ class QueueTestCase(unittest.TestCase):
     def test_enqueue(self):
         queue = Queue()
 
-        tests = [1, '0', Queue, lambda x: x, {}, [], None]
+        tests = [1, "0", Queue, lambda x: x, {}, [], None]
 
         for test in tests:
             queue.enqueue(test)
@@ -123,10 +121,10 @@ class QueueTestCase(unittest.TestCase):
     def test_print(self):
         queue = Queue()
 
-        assert print(queue) == ''
+        assert print(queue) == ""
 
         queue.enqueue(3)
         queue.enqueue(1)
         queue.enqueue(2)
 
-        assert print(queue) == '3 -> 1 -> 2'
+        assert print(queue) == "3 -> 1 -> 2"

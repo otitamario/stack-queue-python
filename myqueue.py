@@ -1,3 +1,9 @@
-class Stack:
+class Queue:
     def __init__(self):
-        self.elements = []
+        "empty"
+        pass
+
+class QueueDequeueException:
+    def __init__(self):
+        "empty"
+        pass
