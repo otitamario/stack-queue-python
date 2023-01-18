@@ -8,14 +8,16 @@ Para isso criei a clase nó (Node) que armazena os dados e a posição next.
 ## Implementação da Pilha (Stack)
 
 Basicamente precisa ficar atualizando o topo (top) e o tamanho size da Stack
-a cada operação push ou pop
+a cada operação push ou pop.
+
 Implementei o método `__len__` para poder usar len(stack) e o método `__str__` para
 permitir a impressão print(stack)
 
 ## Implementação da Fila (Queue)
 
 Basicamente precisa ficar atualizando o primeiro (head) e o tamanho size da Queue
-a cada operação enqueue ou dequeue
+a cada operação enqueue ou dequeue.
+
 Implementei o método `__len__` para poder usar len(queue) e o método `__str__` para
 permitir a impressão print(queue)
 
