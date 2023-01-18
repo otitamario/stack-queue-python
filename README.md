@@ -1,46 +1,35 @@
-# Teste Desenvolvedor Full-Stack | Python
+# Detalhes da Implementação
 
-A criação de estruturas de dados como pilhas e filas é algo trivial em programação.
-Utilizamos essas estruturas praticamente para tudo. Colocamos tarefas em uma fila para que
-sejam executadas assincronamente, criamos pilhas para verificar o histórico de navegação
-de um usuário, entre outras coisas.
+Foi usada a versão 3.10.6 do Python.
+Armazenei código num repositório privado no github, se precisarem passo o acesso.
+A Pilha (Stack) e a Fila (Queue) foram implementadas com Linked Listas.
+Para isso criei a clase nó (Node) que armazena os dados e a posição next.
 
-Python nos dá uma mão para a criação dessas estruturas de dados, seja para a criação de filas
-com `collections.deque` e pilhas com uma lista simples `[]`.
+## Implementação da Pilha (Stack)
 
-Esse teste tem a intenção de fazer você pensar um pouco fora da caixa e implementar as duas
-estruturas de dados de uma maneira diferente.
+Basicamente precisa ficar atualizando o topo (top) e o tamanho size da Stack
+a cada operação push ou pop
+Implementei o método `__len__` para poder usar len(stack) e o método `__str__` para
+permitir a impressão print(stack)
 
+## Implementação da Fila (Queue)
 
-## Implemente Fila e Pilha
+Basicamente precisa ficar atualizando o primeiro (head) e o tamanho size da Queue
+a cada operação enqueue ou dequeue
+Implementei o método `__len__` para poder usar len(queue) e o método `__str__` para
+permitir a impressão print(queue)
 
-A implementação deve seguir algumas regras:
+## Os testes
 
-1. As estruturas de dados suportam a inserção de quaisquer tipos de dados, incluindo funções,
-   classes, etc;
-2. Não é permitido utilizar estruturas de dados builtin como tuplas, listas, dicionários, deque,
-   etc;
-3. A implementação deve passar em todos os testes unitários (`tests.py`)
+O código passou em todos os testes porém no arquivo de testes precisei modificar duas coisas:
 
-## O que levaremos em conta
+<ul>
+<li>
+No método `test_push_items()` da stack estava `stack.add(test)` e o correto é `stack.push(test)`
+</li>
+<li>
+Nos métodos `test_print()` não dá para comparar a saída de print() com string, portanto
+comparei o print() esperado com o print() resultante
+</li>
 
-É muito importante pra nós que seu código seja de fácil entendimento, coeso e simples - quando
-precisar ser simples.
-Pense que você já está no time e está desenvolvendo algo para colocar em produção em seguida. Deixe
-os `TODOs` de lado e implemente tudo, ao seu tempo.
-
-## Como nos enviar a resolução
-
-Você pode criar um arquivo README nos dizendo como executar seu código, que versão do Python utilizou,
-dúvidas e sugestões. Envie um diretório compactado com o código, os testes e o README.
-
-## Tempo para concluir o teste
-
-Fique a vontade para utilizar o tempo que precisar. Sabemos que diferentes programadores tem
-diferentes dificuldades e você não será avaliado pelo tempo de desenvolvimento e sim pela resolução.
-
-## Dúvidas e contato
-
-Diego Costa - diego.costa@vcx.solutions
-
-Eduardo Orige - eduardo.orige@vcx.solutions
+</ul>
