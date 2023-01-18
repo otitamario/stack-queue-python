@@ -32,16 +32,22 @@ class Queue:
             return to_return
 
     def __str__(self):
+        """
+        Método que permite a impressão da Pilha
+        """
         message = ""
         chrs = " -> "
-        if (self.head is not None):
-            message = message +str(self.head.data)
-            while(True):
-                if(self.head.next is None): #this is our do-while loop emulation, checking if this is the last Node
+        temp = self.head
+        if (temp is not None):
+            message = message +str(temp.data)
+            while (temp):
+                if(temp.next is None): 
                     break
-                self.head = self.head.next #update cur so we move on in the next iteration 
-                message = message + chrs+str(self.head.data)
+                temp = temp.next # mover para a próxima iteracao 
+                message = message + chrs+str(temp.data)
+            
         return f"{message}"
+
 
 
 class QueueDequeueException(Exception):

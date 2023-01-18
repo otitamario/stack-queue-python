@@ -49,19 +49,22 @@ class Stack:
         """
         return True if self.__len__() == 0 else False
 
+    
     def __str__(self):
         """
         Método que permite a impressão da Pilha
         """
         message = ""
         chrs = " -> "
-        if (self.top is not None):
-            message = message +str(self.top.data)
-            while(True):
-                if(self.top.next is None): #this is our do-while loop emulation, checking if this is the last Node
+        temp = self.top
+        if (temp is not None):
+            message = message +str(temp.data)
+            while (temp):
+                if(temp.next is None): 
                     break
-                self.top = self.top.next #update cur so we move on in the next iteration 
-                message = message + chrs+str(self.top.data)
+                temp = temp.next # mover para a próxima iteracao 
+                message = message + chrs+str(temp.data)
+            
         return f"{message}"
 
 
