@@ -1,19 +1,41 @@
 from node import Node
 
 class Queue:
+    """
+    Classe Queue implementada com Linked List
+    """
+    
     def __init__(self):
+        """
+        Inicializando o primeiro e o último
+        da fila como vazios e tamanho = 0
+        """
         self.head = None
         self.last = None
         self.size = 0
  
     def __len__(self):
+        """
+        Método que permite usar len(queue)
+        retornando o tamanho da Fila
+        """
         return self.size
 
     def is_empty(self):
+        """
+        Método que retorna se a Fila 
+        é vazia ou não
+        """
         return True if self.__len__() == 0 else False
 
 
     def enqueue(self, data):
+        """
+        Método que adiciona um novo elemento
+        ao Final da Fila, atualizando o head, last
+        e size
+        """
+        
         if self.last is None:
             self.head = Node(data)
             self.last = self.head
@@ -23,6 +45,12 @@ class Queue:
         self.size += 1
  
     def dequeue(self):
+        """
+        Método pop que remove o primeiro elemento da 
+        Fila, atualizando o head e o size.
+        Se a Fila for vazia, gera a excessão
+        """
+        
         if self.head is None:
             raise QueueDequeueException
         else:
@@ -51,9 +79,17 @@ class Queue:
 
 
 class QueueDequeueException(Exception):
+    """
+    Classe De Excessão para uma Fila
+    """
     def __init__(self):
-        "no initial values"
+        """
+        Sem valores iniciais
+        """
         pass
 
     def __str__(self):
+        """
+        Permite a impressão da classe
+        """
         return "queue is empty"
